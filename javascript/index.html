@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="src/signature.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+        integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="src/sig_styles.css">
+    <title>Till Payments Demo Page</title>
+</head>
+
+<body onload="get_current_utc_time()">
+    <div class="valueinput">
+        <h1>Signature in Postback Header</h1>
+        <h2>Put your values here</h2>
+        <form class="value-forms" onsubmit="sig_generation(); return false">
+            <!-- <label for="api key"> API Key </label>
+            <input type="text" id="apikey"><br> -->
+            <label for="shared secret"> Shared Secret </label>
+            <input type="text" id="sharedsecret"><br>
+            <label for="request method"> Method </label>
+            <input type="text" id="requestmethod" class="readonly" value="POST" readonly="readonly"><br>
+            <label for="request body"> Request Body </label>
+            <textarea id="requestbody" placeholder="JSON Body without white spaces"></textarea><br>
+            <label for="content-type"> Content Type </label>
+            <input type="text" id="content-type" class="readonly" value="application/json; charset=utf-8" readonly="readonly"><br>
+            <label for="timestamp"> Timestamp </label>
+            <input type="text" id="timestamp"><br>
+            <label for="endpoint"> Endpoint </label>
+            <input type="text" id="endpoint"
+                value="https://gateway.tillpayments.com/api/v3/transaction/YOUR-API-KEY-HERE/debit"><br>
+            <input type="checkbox" id="signedrequest" checked>
+            <label for="signedrequest" id="signedrequesttext"> I signed my transaction request </label><br>
+            <input type="submit" id="generation" value="Generate Signature">
+        </form>
+        <div>
+            <form class="value-forms" id="sig-generation" hidden>
+                <h2>Signature</h2>
+                <label for="hashed payload"> Hashed Payload </label>
+                <input type="text" id="hashedpayload" class="readonly" readonly="readonly"><br>
+                <label for="concatenated message"> Concatenated Message </label>
+                <textarea id="concatenatedmessage" class="readonly" readonly="readonly"
+                    style="white-space: pre-line;"></textarea><br>
+                <label for="signature"> Signature </label>
+                <textarea id="signature" class="readonly" readonly="readonly"></textarea><br>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
