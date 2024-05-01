@@ -19,7 +19,7 @@ function sig_generation() {
         var processedEndpoint = endpoint.value
     };
     // console.log(processedEndpoint);
-    if (signedRequest.checked === true) {
+    if (signedRequest.checked === false) {
         var hashedBody = CryptoJS.MD5(requestBody.value).toString();
     } else {
         var hashedBody = CryptoJS.SHA512(requestBody.value).toString();
